@@ -18,14 +18,12 @@ class FindMovie:
                         "with_genres": "27"
                         }
 
-    def find_genres(self):
-        user = input("What Movie genres you want? ").capitalize()
-        genre = next((k for k, v in self.genres.items() if v == user), None)
+    def find_genres(self, data):
+        genre = next((k for k, v in self.genres.items() if v == data), None)
         return genre
 
-    def fin_movie(self, genre):
+    def find_movie(self, genre):
         self.url= f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres={genre}"
         request = requests.get(self.url, headers=self.headers)
         data = json.loads(request.text)
-        for movie in data["results"]:
-            print(movie["title"])
+        return data["results"]

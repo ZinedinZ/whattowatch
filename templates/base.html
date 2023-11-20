@@ -14,22 +14,36 @@
 <div class="dropdown" style="display: flex;
       align-items: center;
       justify-content: center;">
+  <form action="/movie" method="post">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Genres
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Comedy</a></li>
-    <li><a class="dropdown-item" href="#">Horror</a></li>
-    <li><a class="dropdown-item" href="#">Thriller</a></li>
-    <li><a class="dropdown-item" href="#">Adventure</a></li>
-    <li><a class="dropdown-item" href="#">Crime</a></li>
-    <li><a class="dropdown-item" href="#">Fantasy</a></li>
-      <li><a class="dropdown-item" href="#">Romance</a></li>
-      <li><a class="dropdown-item" href="#">Family</a></li>
-      <li><a class="dropdown-item" href="#">Drama</a></li>
-      <li><a class="dropdown-item" href="#">Science Fiction</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><button class="dropdown-item" type="submit" name="genre" value="Action">Action</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Comedy">Comedy</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Horror">Horror</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Family">Family</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Thriller">Thriller</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Adventure">Adventure</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Fantasy">Fantasy</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Romance">Romance</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Drama">Drama</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Science Fiction">Science Fiction</button></li>
+    <li><button class="dropdown-item" type="submit" name="genre" value="Crime">Crime</button></li>
+
+<!--    <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Comedy</a></li>-->
+<!--    <li><a class="dropdown-item" href="/movie">Horror</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Thriller</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Adventure</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Crime</a></li>-->
+<!--    <li><a class="dropdown-item" href="#">Fantasy</a></li>-->
+<!--      <li><a class="dropdown-item" href="#">Romance</a></li>-->
+<!--      <li><a class="dropdown-item" href="#">Family</a></li>-->
+<!--      <li><a class="dropdown-item" href="#">Drama</a></li>-->
+<!--      <li><a class="dropdown-item" href="#">Science Fiction</a></li>-->
   </ul>
+    </form>
 </div>
 </body>
 </html>
