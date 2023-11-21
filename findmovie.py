@@ -1,5 +1,7 @@
 import requests
 import json
+import os
+
 
 class FindMovie:
     def __init__(self):
@@ -8,22 +10,25 @@ class FindMovie:
                        9648: 'Mystery', 10749: 'Romance', 878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller',
                        10752: 'War', 37: 'Western'
                        }
-        self.api_key= "d0e2f5b7d0c7c63fa48e05b4b6a120f9"
-        self.account_id = "20711802"
+        self.url = ""
+        self.auth = os.environ["tmdb_auth"]
         self.headers = {
                         "accept": "application/json",
-                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMGUyZjViN2QwYzdjNjNmYTQ4ZTA1YjRiNmExMjBmOSIsInN1YiI6IjY1NTY4MTIyNjdiNjEzNDVjY2FmNmM3YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sfogkJvuy-o4dfcInhIcTT5oh5uoAATfuG70gdX2fPM",
+                        "Authorization": self.auth,
                         "language": "en-US",
                         "page": "1",
-                        "with_genres": "27"
                         }
 
     def find_genres(self, data):
+        # Takes name of the genre from user and return genre id
         genre = next((k for k, v in self.genres.items() if v == data), None)
         return genre
 
     def find_movie(self, genre):
-        self.url= f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres={genre}"
+        self.url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=" \
+                  f"en-US&page=1&sort_by=popularity.desc&with_genres={genre}"
+
+        # Call tmdb API to get list of movies
         request = requests.get(self.url, headers=self.headers)
         data = json.loads(request.text)
         return data["results"]

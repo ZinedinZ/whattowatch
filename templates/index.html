@@ -3,24 +3,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>What2watch</title>
+    <title>ElmaFlix</title>
+  <style>
+    strong {
+    font-weight: bold;
+    }
+  </style>
 </head>
 <body style="text-align: center">
 {% for movie in data[:10]: %}
-<!--    <h2>Title: {{ movie["title"] }}</h2>-->
-<!--    <h4>Overview:</h4> {{ movie["overview"] }}-->
 <div class="card">
-  <img style="width: 100px" src="https://www.themoviedb.org/t/p/original/bMwjsrY3tR6BZEy9dhEAhS9FqKk.jpg" class="card-img-top" alt="...">
+  <img style="width: 200px" src="https://image.tmdb.org/t/p/original{{ movie['poster_path']}}"  class="card-img-top" alt="...">
 
   <div class="card-body">
-    <h5 class="card-title">{{ movie["title"] }}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h3 class="card-title">{{ movie["title"] }}</h3>
+    <p class="card-text"> <strong>Release Date: </strong>{{ movie["release_date"]}}</p>
+    <p class="card-text"> <strong>Review: </strong>{{ movie["vote_average"]}} ⭐</p>
+    <p class="card-text"> <strong>Overview: </strong>{{ movie["overview"]}}</p>
   </div>
 </div>
 
 <div class="card" aria-hidden="true">
-<!--  <img src="" class="card-img-top" alt="...">-->
   <div class="card-body">
     <h5 class="card-title placeholder-glow">
       <span class="placeholder col-6"></span>
